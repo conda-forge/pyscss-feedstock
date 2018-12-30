@@ -27,7 +27,7 @@ requirements:
   run:
     - python
     - six
-    - enum34
+    - enum34  # [py2k]
     - pathlib
 
 test:
