@@ -12,9 +12,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  skip: True  # [py36]
-  number: 1001
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  number: 3
+  script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - pyscss=scss.tool:main
     - less2scss=scss.less2scss:main
@@ -22,12 +21,12 @@ build:
 requirements:
   build:
     - python
-    - setuptools
+    - pip
 
   run:
     - python
     - six
-    - enum34
+    - enum34  # [py2k]
     - pathlib
 
 test:
