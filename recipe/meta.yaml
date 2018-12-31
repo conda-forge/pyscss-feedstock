@@ -13,7 +13,7 @@ source:
 
 build:
   number: 2
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - pyscss=scss.tool:main
     - less2scss=scss.less2scss:main
