@@ -20,10 +20,11 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - pcre
   host:
+    - pcre
     - python
     - pip
-
   run:
     - python
     - six
