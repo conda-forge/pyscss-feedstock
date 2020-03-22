@@ -1,6 +1,5 @@
 {% set name = "pyScss" %}
-{% set version = "1.3.5" %}
-{% set sha256 = "14a25c33c221a66bb1f000a6a067f376528d3df2f9333cee9c95709a9280cdb0" %}
+{% set version = "1.3.6" %}
 
 package:
   name: {{ name|lower }}
@@ -9,11 +8,11 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 123c1a9087f1c420bea891ebf19d5222262c7d30ced20bb38586023de28c9d4f
 
 build:
-  number: 1001
-  script: "{{ PYTHON }} -m pip install . -vv"
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - pyscss=scss.tool:main
     - less2scss=scss.less2scss:main
@@ -21,15 +20,17 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - pcre
   host:
+    - pcre
     - python
     - pip
-
   run:
     - python
     - six
-    - enum34  # [py2k]
-    - pathlib
+    - enum34  # [py<34]
+    - pathlib  # [py<34]
+    - ordereddict  # [py<27]
 
 test:
   imports:
@@ -47,7 +48,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'pyScss, a Scss compiler for Python'
+  summary: pyScss, a Scss compiler for Python
   description: |
     pyScss is a compiler for the Sass language, a superset of CSS3 that adds
     programming capabilities and some other syntactic sugar.
