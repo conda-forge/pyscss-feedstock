@@ -11,7 +11,7 @@ source:
   sha256: 123c1a9087f1c420bea891ebf19d5222262c7d30ced20bb38586023de28c9d4f
 
 build:
-  number: 0
+  number: 1001
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - pyscss=scss.tool:main
