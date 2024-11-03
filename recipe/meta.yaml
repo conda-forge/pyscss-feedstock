@@ -25,10 +25,10 @@ requirements:
   host:
     - pcre
     - pip
-    - python >=3.8
+    - python
     - setuptools
   run:
-    - python >=3.8
+    - python
     - six
 
 test:
