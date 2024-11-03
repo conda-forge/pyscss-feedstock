@@ -24,14 +24,12 @@ requirements:
     - pcre
   host:
     - pcre
-    - python
     - pip
+    - python >=3.8
+    - setuptools
   run:
-    - python
+    - python >=3.8
     - six
-    - enum34  # [py<34]
-    - pathlib  # [py<34]
-    - ordereddict  # [py<27]
 
 test:
   imports:
